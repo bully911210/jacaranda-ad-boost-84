@@ -1,38 +1,17 @@
 
 import { useEffect, useState } from 'react';
-import { Target, Zap, Clock, Mail, Database, RotateCcw, DollarSign, Heart } from 'lucide-react';
+import { Target, Zap, Clock, Mail, Database, RotateCcw, Phone, PhoneCall } from 'lucide-react';
 
 const CampaignFeaturesSection = () => {
   const [animationStep, setAnimationStep] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAnimationStep((prev) => (prev + 1) % 8); // Extended to 8 steps for the new animation
-    }, 1500);
+      setAnimationStep((prev) => (prev + 1) % 8); // 8 steps for the animation cycle
+    }, 2000); // Slower timing for better visibility
 
     return () => clearInterval(interval);
   }, []);
-
-  // Calculate lead position and color for typical agency flow
-  const getTypicalLeadStyle = () => {
-    if (animationStep === 0) return { left: '0%', backgroundColor: '#FF9800', opacity: 1 };
-    if (animationStep === 1) return { left: '25%', backgroundColor: '#FFC107', opacity: 1 };
-    if (animationStep === 2) return { left: '50%', backgroundColor: '#FFEB3B', opacity: 1 };
-    if (animationStep === 3) return { left: '75%', backgroundColor: '#9E9E9E', opacity: 1 };
-    if (animationStep === 4) return { left: '100%', backgroundColor: '#808080', opacity: 1 };
-    if (animationStep >= 5) return { left: '100%', backgroundColor: '#808080', opacity: 0 };
-    return { left: '0%', backgroundColor: '#FF9800', opacity: 0 };
-  };
-
-  // Calculate lead position for Jacaranda flow
-  const getJacarandaLeadStyle = () => {
-    if (animationStep === 0) return { left: '0%', opacity: 1 };
-    if (animationStep === 1) return { left: '25%', opacity: 1 };
-    if (animationStep === 2) return { left: '50%', opacity: 1 };
-    if (animationStep === 3) return { left: '75%', opacity: 1 };
-    if (animationStep >= 4) return { left: '100%', opacity: 1 };
-    return { left: '0%', opacity: 0 };
-  };
 
   return (
     <section style={{ backgroundColor: '#4B0082' }} className="py-20">
@@ -81,124 +60,112 @@ const CampaignFeaturesSection = () => {
             </div>
           </div>
 
-          {/* Process Flow Comparison */}
+          {/* Results Comparison */}
           <div className="bg-white rounded-lg p-8">
             <h3 className="font-sans font-bold text-2xl text-gray-900 text-center mb-12">
-              The Process Flow Comparison
+              The Results Comparison
             </h3>
             
-            <div className="space-y-16">
-              {/* Top Timeline: Typical Agency Flow */}
-              <div className="relative">
-                <h4 className="font-sans font-bold text-xl text-gray-700 mb-8 text-center">
-                  Typical Agency Flow
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Left Side: Typical Agency Results */}
+              <div className="text-center">
+                <h4 className="font-sans font-bold text-xl text-gray-700 mb-8">
+                  Typical Agency Results
                 </h4>
                 
-                <div className="relative h-24 bg-gray-50 rounded-lg p-6">
-                  {/* Timeline */}
-                  <div className="absolute top-1/2 left-8 right-8 h-1 bg-gray-300 transform -translate-y-1/2"></div>
-                  
-                  {/* Lead Icon */}
-                  <div 
-                    className="absolute top-1/2 w-4 h-4 rounded-full transform -translate-y-1/2 transition-all duration-1500 ease-out"
-                    style={{
-                      ...getTypicalLeadStyle(),
-                      left: `calc(${getTypicalLeadStyle().left} * 0.8 + 8%)`,
-                    }}
-                  ></div>
-                  
-                  {/* Labels */}
-                  {animationStep === 0 && (
-                    <div className="absolute top-2 left-8 text-sm text-gray-600 font-semibold animate-fade-in">
-                      New Lead
+                <div className="relative h-80 bg-gray-50 rounded-lg p-8 flex items-center justify-center">
+                  {/* Smartphone */}
+                  <div className="relative w-32 h-56 bg-black rounded-2xl p-2 shadow-lg">
+                    {/* Screen */}
+                    <div className={`w-full h-full rounded-xl transition-all duration-1000 ${
+                      animationStep === 2 ? 'bg-gray-800' : 'bg-gray-900'
+                    }`}>
+                      {/* Invoice notification at step 2 */}
+                      {animationStep === 2 && (
+                        <div className="absolute top-4 left-2 right-2 bg-red-500 text-white text-xs p-2 rounded animate-fade-in">
+                          Invoice Due: [Marketing Agency]
+                        </div>
+                      )}
                     </div>
-                  )}
-                  
-                  {animationStep >= 4 && animationStep <= 5 && (
-                    <div className="absolute top-2 right-8 text-sm text-gray-600 font-semibold animate-fade-in flex items-center gap-1">
-                      Lead Gone Cold
-                      <Heart className="w-4 h-4 text-red-500 fill-current" style={{ transform: 'scale(-1, 1)' }} />
-                    </div>
-                  )}
+                    
+                    {/* Cobweb effect after step 4 */}
+                    {animationStep >= 4 && (
+                      <div className="absolute top-2 right-2 text-gray-400 text-xs animate-fade-in">
+                        🕸️
+                      </div>
+                    )}
+                  </div>
                 </div>
                 
-                <p className="font-sans text-gray-600 mt-4 text-center">
-                  Slow • Passive • Value-Destroying
+                <p className="font-sans text-gray-600 mt-4 font-semibold">
+                  Money spent. Zero results.
                 </p>
               </div>
 
-              {/* Bottom Timeline: The Jacaranda Flow */}
-              <div className="relative">
-                <h4 className="font-sans font-bold text-xl text-purple-700 mb-8 text-center">
-                  The Jacaranda Flow
+              {/* Right Side: The Jacaranda Result */}
+              <div className="text-center">
+                <h4 className="font-sans font-bold text-xl text-purple-700 mb-8">
+                  The Jacaranda Result
                 </h4>
                 
-                <div className="relative h-24 bg-purple-50 rounded-lg p-6">
-                  {/* Timeline */}
-                  <div className="absolute top-1/2 left-8 right-8 h-2 bg-purple-600 transform -translate-y-1/2 rounded-full"></div>
-                  
-                  {/* Checkpoints */}
-                  <div className="absolute top-1/2 left-[28%] transform -translate-y-1/2">
-                    <Mail className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
-                      animationStep >= 1 ? 'scale-125 text-yellow-400' : ''
-                    }`} />
+                <div className="relative h-80 bg-purple-50 rounded-lg p-8 flex items-center justify-center">
+                  {/* Smartphone */}
+                  <div className="relative w-32 h-56 bg-black rounded-2xl p-2 shadow-lg">
+                    {/* Screen */}
+                    <div className={`w-full h-full rounded-xl transition-all duration-500 ${
+                      animationStep >= 1 ? 'bg-green-400' : 'bg-gray-900'
+                    }`}>
+                      {/* Incoming call at step 1+ */}
+                      {animationStep >= 1 && (
+                        <div className="absolute inset-2 flex flex-col items-center justify-center text-black animate-fade-in">
+                          <PhoneCall className="w-8 h-8 mb-2 animate-pulse" />
+                          <div className="text-xs font-bold">New Customer</div>
+                          <div className="text-xs">Calling...</div>
+                        </div>
+                      )}
+                      
+                      {/* Active call interface at step 4+ */}
+                      {animationStep >= 4 && (
+                        <div className="absolute inset-2 flex flex-col items-center justify-center text-black">
+                          <Phone className="w-8 h-8 mb-2 text-green-700" />
+                          <div className="text-xs font-bold">Connected</div>
+                          <div className="text-xs">00:15</div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                   
-                  <div className="absolute top-1/2 left-[48%] transform -translate-y-1/2">
-                    <Database className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
-                      animationStep >= 2 ? 'scale-125 text-yellow-400' : ''
-                    }`} />
-                  </div>
-                  
-                  <div className="absolute top-1/2 left-[68%] transform -translate-y-1/2">
-                    <RotateCcw className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
-                      animationStep >= 3 ? 'scale-125 text-yellow-400' : ''
-                    }`} />
-                  </div>
-                  
-                  <div className="absolute top-1/2 right-8 transform -translate-y-1/2">
-                    <DollarSign className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
-                      animationStep >= 4 ? 'scale-125 text-yellow-400' : ''
-                    }`} />
-                  </div>
-                  
-                  {/* Lead Icon */}
-                  <div 
-                    className="absolute top-1/2 w-4 h-4 bg-white rounded-full transform -translate-y-1/2 transition-all duration-1000 ease-out border-2 border-purple-600"
-                    style={{
-                      left: `calc(${getJacarandaLeadStyle().left} * 0.8 + 8%)`,
-                      opacity: getJacarandaLeadStyle().opacity,
-                    }}
-                  ></div>
-                  
-                  {/* Dynamic Labels */}
-                  {animationStep === 1 && (
-                    <div className="absolute top-2 left-[28%] transform -translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
-                      Instant Email/SMS Sent
+                  {/* Notification icons */}
+                  {animationStep >= 2 && (
+                    <div className="absolute left-4 top-1/2 transform -translate-y-1/2 space-y-2 animate-fade-in">
+                      <div className="flex items-center bg-white rounded-lg p-2 shadow-md">
+                        <Mail className="w-4 h-4 text-blue-500 mr-2" />
+                        <span className="text-xs">Welcome Email Sent</span>
+                      </div>
                     </div>
                   )}
                   
-                  {animationStep === 2 && (
-                    <div className="absolute top-2 left-[48%] transform -translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
-                      Logged in CRM
-                    </div>
-                  )}
-                  
-                  {animationStep === 3 && (
-                    <div className="absolute top-2 left-[68%] transform -translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
-                      Pixel Data Fed
+                  {animationStep >= 3 && (
+                    <div className="absolute right-4 top-1/3 transform -translate-y-1/2 space-y-2 animate-fade-in">
+                      <div className="flex items-center bg-white rounded-lg p-2 shadow-md">
+                        <Database className="w-4 h-4 text-purple-500 mr-2" />
+                        <span className="text-xs">Lead Synced</span>
+                      </div>
                     </div>
                   )}
                   
                   {animationStep >= 4 && (
-                    <div className="absolute top-2 right-8 transform translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
-                      Deal Closed / High-Value Lead
+                    <div className="absolute right-4 bottom-1/3 transform translate-y-1/2 space-y-2 animate-fade-in">
+                      <div className="flex items-center bg-white rounded-lg p-2 shadow-md">
+                        <RotateCcw className="w-4 h-4 text-green-500 mr-2" />
+                        <span className="text-xs">Audience Updated</span>
+                      </div>
                     </div>
                   )}
                 </div>
                 
-                <p className="font-sans text-purple-600 mt-4 text-center font-semibold">
-                  Fast • Automated • Value-Adding
+                <p className="font-sans text-purple-600 mt-4 font-semibold">
+                  Money invested. Real customers.
                 </p>
               </div>
             </div>
