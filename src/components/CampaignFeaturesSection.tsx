@@ -16,45 +16,51 @@ const CampaignFeaturesSection = () => {
   return (
     <section style={{ backgroundColor: '#4B0082' }} className="py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Main Headline */}
-          <h2 className="font-sans font-bold text-4xl md:text-5xl text-white text-center mb-4">
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white text-center mb-6">
             Stop Buying Clicks. Start Closing Deals.
           </h2>
           
           {/* Sub-headline */}
-          <h3 className="font-sans font-bold text-2xl md:text-3xl text-white text-center mb-16">
+          <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white text-center mb-16">
             We Replaced The Broken Agency Model.
           </h3>
 
           {/* Three Pillars */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             <div className="text-center text-white">
-              <div className="mb-4 flex justify-center">
-                <Target className="w-12 h-12 text-white" />
+              <div className="mb-6 flex justify-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
               </div>
-              <h4 className="font-sans font-bold text-xl mb-3">Surgical Targeting</h4>
-              <p className="font-sans text-lg">
+              <h4 className="font-montserrat font-bold text-xl mb-4">Surgical Targeting</h4>
+              <p className="font-open-sans text-gray-600 leading-relaxed">
                 We don't find audiences; we build them. Reaching only high-intent buyers ready to act.
               </p>
             </div>
             
             <div className="text-center text-white">
-              <div className="mb-4 flex justify-center">
-                <Zap className="w-12 h-12 text-white" />
+              <div className="mb-6 flex justify-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
               </div>
-              <h4 className="font-sans font-bold text-xl mb-3">Conversion-Focused Creative</h4>
-              <p className="font-sans text-lg">
+              <h4 className="font-montserrat font-bold text-xl mb-4">Conversion-Focused Creative</h4>
+              <p className="font-open-sans text-gray-600 leading-relaxed">
                 Our ads don't just get seen; they get results. Every visual and word is A/B tested for one purpose: conversion.
               </p>
             </div>
             
             <div className="text-center text-white">
-              <div className="mb-4 flex justify-center">
-                <Clock className="w-12 h-12 text-white" />
+              <div className="mb-6 flex justify-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                  <Clock className="w-8 h-8 text-white" />
+                </div>
               </div>
-              <h4 className="font-sans font-bold text-xl mb-3">Instantaneous Sales Funnel</h4>
-              <p className="font-sans text-lg">
+              <h4 className="font-montserrat font-bold text-xl mb-4">Instantaneous Sales Funnel</h4>
+              <p className="font-open-sans text-gray-600 leading-relaxed">
                 The moment a lead submits, our system engages them via SMS/email and delivers them to your team in under 60 seconds.
               </p>
             </div>
@@ -62,14 +68,14 @@ const CampaignFeaturesSection = () => {
 
           {/* Results Comparison */}
           <div className="bg-white rounded-lg p-8">
-            <h3 className="font-sans font-bold text-2xl text-gray-900 text-center mb-12">
+            <h3 className="font-montserrat font-bold text-2xl text-gray-900 text-center mb-12">
               The Results Comparison
             </h3>
             
             <div className="grid md:grid-cols-2 gap-12">
               {/* Left Side: Typical Agency Results */}
               <div className="text-center">
-                <h4 className="font-sans font-bold text-xl text-gray-700 mb-8">
+                <h4 className="font-montserrat font-bold text-xl text-gray-700 mb-8">
                   Typical Agency Results
                 </h4>
                 
@@ -97,14 +103,14 @@ const CampaignFeaturesSection = () => {
                   </div>
                 </div>
                 
-                <p className="font-sans text-gray-600 mt-4 font-semibold">
+                <p className="font-open-sans text-gray-600 mt-4 font-semibold">
                   Money spent. Zero results.
                 </p>
               </div>
 
               {/* Right Side: The Jacaranda Result */}
               <div className="text-center">
-                <h4 className="font-sans font-bold text-xl text-purple-700 mb-8">
+                <h4 className="font-montserrat font-bold text-xl text-purple-700 mb-8">
                   The Jacaranda Result
                 </h4>
                 
@@ -164,7 +170,7 @@ const CampaignFeaturesSection = () => {
                   )}
                 </div>
                 
-                <p className="font-sans text-purple-600 mt-4 font-semibold">
+                <p className="font-open-sans text-purple-600 mt-4 font-semibold">
                   Money invested. Real customers.
                 </p>
               </div>
