@@ -4,39 +4,6 @@ const SocialProofSection = () => {
     <section className="bg-gray-50 py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Results Showcase */}
-          <div className="text-center mb-16">
-            <div className="bg-white rounded-lg shadow-lg p-8 inline-block">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                <div className="text-center">
-                  <div className="font-montserrat font-bold text-4xl text-jacaranda mb-2">
-                    +40%
-                  </div>
-                  <div className="font-open-sans text-gray-600">
-                    More Qualified Leads
-                  </div>
-                </div>
-                <div className="hidden md:block w-px h-12 bg-gray-200"></div>
-                <div className="text-center">
-                  <div className="font-montserrat font-bold text-4xl text-jacaranda mb-2">
-                    &lt;2min
-                  </div>
-                  <div className="font-open-sans text-gray-600">
-                    Average Response Time
-                  </div>
-                </div>
-                <div className="hidden md:block w-px h-12 bg-gray-200"></div>
-                <div className="text-center">
-                  <div className="font-open-sans text-sm text-gray-500 italic">
-                    Client Results
-                    <br />
-                    60 Day Campaign
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Industry Expertise */}
           <div className="text-center mb-16">
             <h3 className="font-montserrat font-bold text-2xl text-gray-900 mb-8">

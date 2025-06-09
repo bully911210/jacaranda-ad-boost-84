@@ -5,6 +5,7 @@ import BenefitsSection from '@/components/BenefitsSection';
 import SocialProofSection from '@/components/SocialProofSection';
 import WhyJacarandaSection from '@/components/WhyJacarandaSection';
 import LeadCaptureSection from '@/components/LeadCaptureSection';
+import MetaAdEngineSection from '@/components/MetaAdEngineSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Footer from '@/components/Footer';
 
@@ -31,6 +32,7 @@ const Index = () => {
       <SocialProofSection />
       <WhyJacarandaSection />
       <LeadCaptureSection />
+      <MetaAdEngineSection />
       <Footer />
       <WhatsAppButton />
     </div>
