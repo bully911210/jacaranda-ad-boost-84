@@ -1,12 +1,38 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import HeroSection from '@/components/HeroSection';
+import BenefitsSection from '@/components/BenefitsSection';
+import SocialProofSection from '@/components/SocialProofSection';
+import WhyJacarandaSection from '@/components/WhyJacarandaSection';
+import LeadCaptureSection from '@/components/LeadCaptureSection';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  useEffect(() => {
+    // Load Calendly widget script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <HeroSection />
+      <BenefitsSection />
+      <SocialProofSection />
+      <WhyJacarandaSection />
+      <LeadCaptureSection />
+      <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
