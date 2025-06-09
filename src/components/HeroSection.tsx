@@ -15,10 +15,12 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 text-center relative z-10 py-20">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
-            More Leads. Faster Responses. Higher Conversions.
+            More Leads.<br/>
+            Faster Responses.<br/>
+            Higher Conversions.
           </h1>
           <h2 className="font-open-sans text-lg md:text-xl lg:text-2xl mb-12 opacity-90 leading-relaxed">
-            We don't just run ads—we engineer your entire sales pipeline.
+            We don't just run ads - we engineer your entire sales pipeline.
           </h2>
           <Button 
             onClick={scrollToCalendly}

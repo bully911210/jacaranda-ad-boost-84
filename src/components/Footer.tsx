@@ -16,17 +16,17 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="font-open-sans text-lg mb-6">
             <a 
-              href="mailto:contact@jacarandamedia.com" 
+              href="mailto:info@jacarandamedia.co.za" 
               className="hover:text-jacaranda-200 transition-colors duration-300"
             >
-              contact@jacarandamedia.com
+              info@jacarandamedia.co.za
             </a>
             <span className="mx-3">|</span>
             <a 
-              href="tel:+27123456789" 
+              href="tel:+27839984879" 
               className="hover:text-jacaranda-200 transition-colors duration-300"
             >
-              +27 12 345 6789
+              +27 83 998 4879
             </a>
           </div>
           
@@ -45,9 +45,11 @@ const Footer = () => {
             </a>
           </div>
           
-          {/* Copyright */}
+          {/* Copyright and Credit */}
           <div className="font-open-sans text-sm opacity-75">
             © 2025 Jacaranda Media. All rights reserved. | Proudly South African
+            <br />
+            Created by Franz Badenhorst
           </div>
         </div>
       </div>

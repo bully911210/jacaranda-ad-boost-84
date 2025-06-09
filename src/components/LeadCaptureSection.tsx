@@ -21,8 +21,8 @@ const LeadCaptureSection = () => {
             Let's discuss how to turn your ad spend into a lead-generating machine.
           </p>
           
-          {/* Calendly Embed */}
-          <div className="max-w-3xl mx-auto mb-8">
+          {/* Calendly Embed with wrapper */}
+          <div className="max-w-3xl mx-auto mb-8 border border-gray-200 rounded-lg overflow-hidden">
             <div 
               className="calendly-inline-widget" 
               data-url="https://calendly.com/badenhorst-franz/meta-ads-strategy-call?hide_gdpr_banner=1&primary_color=e27cff" 
