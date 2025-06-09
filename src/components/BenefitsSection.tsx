@@ -1,33 +1,41 @@
 
-import { Target, Lightbulb, TrendingUp, Shield } from "lucide-react";
+import { Zap, Target, BarChart3, Cog } from "lucide-react";
 
 const BenefitsSection = () => {
   const benefits = [
     {
+      icon: Zap,
+      title: "Instant Lead Delivery",
+      description: "Automated pipelines deliver leads to your CRM, WhatsApp, and sales team in seconds—not hours."
+    },
+    {
       icon: Target,
-      title: "Meta Ad Strategy & Setup",
-      description: "Tailored campaigns that hit your target audience."
+      title: "End-to-End Strategy",
+      description: "Ad strategy, creative, copy, automation, and analytics—we handle your complete sales funnel."
     },
     {
-      icon: Lightbulb,
-      title: "Creative Ads & Copywriting",
-      description: "Engaging visuals & headlines crafted for clicks."
+      icon: BarChart3,
+      title: "Data-Driven Results",
+      description: "Transparent reporting and performance insights. No guesswork, just measurable ROI."
     },
     {
-      icon: TrendingUp,
-      title: "Optimization & Analytics",
-      description: "Continuous A/B testing to maximize conversions."
-    },
-    {
-      icon: Shield,
-      title: "Industry Expertise",
-      description: "Proven success in insurance marketing—scales to any sector."
+      icon: Cog,
+      title: "Custom Integrations",
+      description: "Our on-call developer team customises and integrates fast with your existing systems."
     }
   ];
 
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-gray-900 mb-6">
+            Why Speed-to-Lead Wins
+          </h2>
+          <p className="font-open-sans text-lg text-gray-600 leading-relaxed">
+            Faster response times mean more deals closed. We automate your entire lead journey from Meta ads to your sales team.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div 

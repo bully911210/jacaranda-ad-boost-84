@@ -23,11 +23,16 @@ const Footer = () => {
             </a>
             <span className="mx-3">|</span>
             <a 
-              href="tel:+1234567890" 
+              href="tel:+27123456789" 
               className="hover:text-jacaranda-200 transition-colors duration-300"
             >
-              +1-234-567-890
+              +27 12 345 6789
             </a>
+          </div>
+          
+          {/* Tagline */}
+          <div className="font-open-sans text-sm mb-6 opacity-90 italic">
+            "Speed closes deals - and we make speed happen."
           </div>
           
           {/* Links */}
@@ -42,7 +47,7 @@ const Footer = () => {
           
           {/* Copyright */}
           <div className="font-open-sans text-sm opacity-75">
-            © 2025 Jacaranda Media. All rights reserved.
+            © 2025 Jacaranda Media. All rights reserved. | Proudly South African
           </div>
         </div>
       </div>

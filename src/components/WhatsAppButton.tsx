@@ -3,9 +3,9 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    // Replace with actual WhatsApp number
-    const phoneNumber = "1234567890"; // Remove spaces and special characters
-    const message = "Hi! I'm interested in learning more about your Meta advertising services.";
+    // Replace with actual South African WhatsApp number
+    const phoneNumber = "27123456789"; // South African format
+    const message = "Hi! I'm interested in learning more about your Meta advertising and automation services.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };

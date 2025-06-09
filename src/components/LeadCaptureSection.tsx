@@ -14,11 +14,11 @@ const LeadCaptureSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-gray-900 mb-6">
-            Get Started Today – Book Your Free Meta Ads Strategy Call
+            Ready to Engineer Your Sales Pipeline?
           </h2>
           <p className="font-open-sans text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-            Discover how we can transform your advertising results. Schedule a complimentary strategy session 
-            to discuss your goals and receive a custom campaign roadmap.
+            Book a strategy call with our Meta Ads and automation experts. 
+            Let's discuss how to turn your ad spend into a lead-generating machine.
           </p>
           
           {/* Calendly Embed */}
@@ -35,8 +35,12 @@ const LeadCaptureSection = () => {
             onClick={scrollToCalendly}
             className="bg-jacaranda hover:bg-jacaranda-700 text-white font-open-sans font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105"
           >
-            Schedule a Call
+            Book a Call with the Expert
           </Button>
+          
+          <div className="mt-8 font-open-sans text-sm text-gray-500 italic">
+            Because speed closes deals - and we make speed happen.
+          </div>
         </div>
       </div>
     </section>
