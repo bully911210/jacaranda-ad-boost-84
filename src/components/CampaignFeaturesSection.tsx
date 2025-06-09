@@ -16,14 +16,14 @@ const CampaignFeaturesSection = () => {
   return (
     <section style={{ backgroundColor: '#4B0082' }} className="py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Main Headline */}
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white text-center mb-6">
             Stop Buying Clicks. Start Closing Deals.
           </h2>
           
           {/* Sub-headline */}
-          <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white text-center mb-16">
+          <h3 className="font-montserrat font-bold text-xl md:text-2xl text-white text-center mb-16">
             We Replaced The Broken Agency Model.
           </h3>
 
@@ -35,8 +35,8 @@ const CampaignFeaturesSection = () => {
                   <Target className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h4 className="font-montserrat font-bold text-xl mb-4">Surgical Targeting</h4>
-              <p className="font-open-sans text-gray-600 leading-relaxed">
+              <h4 className="font-montserrat font-bold text-lg md:text-xl mb-4">Surgical Targeting</h4>
+              <p className="font-open-sans text-gray-200 leading-relaxed text-sm md:text-base">
                 We don't find audiences; we build them. Reaching only high-intent buyers ready to act.
               </p>
             </div>
@@ -47,8 +47,8 @@ const CampaignFeaturesSection = () => {
                   <Zap className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h4 className="font-montserrat font-bold text-xl mb-4">Conversion-Focused Creative</h4>
-              <p className="font-open-sans text-gray-600 leading-relaxed">
+              <h4 className="font-montserrat font-bold text-lg md:text-xl mb-4">Conversion-Focused Creative</h4>
+              <p className="font-open-sans text-gray-200 leading-relaxed text-sm md:text-base">
                 Our ads don't just get seen; they get results. Every visual and word is A/B tested for one purpose: conversion.
               </p>
             </div>
@@ -59,8 +59,8 @@ const CampaignFeaturesSection = () => {
                   <Clock className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h4 className="font-montserrat font-bold text-xl mb-4">Instantaneous Sales Funnel</h4>
-              <p className="font-open-sans text-gray-600 leading-relaxed">
+              <h4 className="font-montserrat font-bold text-lg md:text-xl mb-4">Instantaneous Sales Funnel</h4>
+              <p className="font-open-sans text-gray-200 leading-relaxed text-sm md:text-base">
                 The moment a lead submits, our system engages them via SMS/email and delivers them to your team in under 60 seconds.
               </p>
             </div>
