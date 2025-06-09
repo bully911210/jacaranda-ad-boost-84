@@ -1,17 +1,38 @@
 
 import { useEffect, useState } from 'react';
-import { Target, Zap, Clock, Frown, Check, MessageCircle, Mail, ThumbsUp } from 'lucide-react';
+import { Target, Zap, Clock, Mail, Database, RotateCcw, DollarSign, Heart } from 'lucide-react';
 
 const CampaignFeaturesSection = () => {
   const [animationStep, setAnimationStep] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAnimationStep((prev) => (prev + 1) % 4);
-    }, 2000);
+      setAnimationStep((prev) => (prev + 1) % 8); // Extended to 8 steps for the new animation
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
+
+  // Calculate lead position and color for typical agency flow
+  const getTypicalLeadStyle = () => {
+    if (animationStep === 0) return { left: '0%', backgroundColor: '#FF9800', opacity: 1 };
+    if (animationStep === 1) return { left: '25%', backgroundColor: '#FFC107', opacity: 1 };
+    if (animationStep === 2) return { left: '50%', backgroundColor: '#FFEB3B', opacity: 1 };
+    if (animationStep === 3) return { left: '75%', backgroundColor: '#9E9E9E', opacity: 1 };
+    if (animationStep === 4) return { left: '100%', backgroundColor: '#808080', opacity: 1 };
+    if (animationStep >= 5) return { left: '100%', backgroundColor: '#808080', opacity: 0 };
+    return { left: '0%', backgroundColor: '#FF9800', opacity: 0 };
+  };
+
+  // Calculate lead position for Jacaranda flow
+  const getJacarandaLeadStyle = () => {
+    if (animationStep === 0) return { left: '0%', opacity: 1 };
+    if (animationStep === 1) return { left: '25%', opacity: 1 };
+    if (animationStep === 2) return { left: '50%', opacity: 1 };
+    if (animationStep === 3) return { left: '75%', opacity: 1 };
+    if (animationStep >= 4) return { left: '100%', opacity: 1 };
+    return { left: '0%', opacity: 0 };
+  };
 
   return (
     <section style={{ backgroundColor: '#4B0082' }} className="py-20">
@@ -60,120 +81,124 @@ const CampaignFeaturesSection = () => {
             </div>
           </div>
 
-          {/* Process Flow Animation */}
+          {/* Process Flow Comparison */}
           <div className="bg-white rounded-lg p-8">
             <h3 className="font-sans font-bold text-2xl text-gray-900 text-center mb-12">
               The Process Flow Comparison
             </h3>
             
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* LEFT SIDE - Typical Agency Flow */}
-              <div className="text-center">
-                <h4 className="font-sans font-bold text-xl text-gray-700 mb-8">
+            <div className="space-y-16">
+              {/* Top Timeline: Typical Agency Flow */}
+              <div className="relative">
+                <h4 className="font-sans font-bold text-xl text-gray-700 mb-8 text-center">
                   Typical Agency Flow
                 </h4>
                 
-                <div className="relative h-64 bg-gray-100 rounded-lg p-6 overflow-hidden">
-                  {/* Scattered dots animation */}
-                  <div className="absolute top-4 left-4">
-                    {[...Array(5)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`w-3 h-3 bg-gray-400 rounded-full absolute transition-all duration-2000 ${
-                          animationStep >= 1 ? 'translate-x-32 translate-y-16' : ''
-                        } ${animationStep >= 2 ? 'opacity-50' : ''} ${animationStep >= 3 ? 'opacity-0' : ''}`}
-                        style={{
-                          top: `${i * 8}px`,
-                          left: `${i * 6}px`,
-                          transitionDelay: `${i * 200}ms`
-                        }}
-                      />
-                    ))}
-                  </div>
+                <div className="relative h-24 bg-gray-50 rounded-lg p-6">
+                  {/* Timeline */}
+                  <div className="absolute top-1/2 left-8 right-8 h-1 bg-gray-300 transform -translate-y-1/2"></div>
                   
-                  {/* Landing page with frown */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-16 h-16 bg-gray-300 rounded-lg flex items-center justify-center">
-                      <Frown className="w-8 h-8 text-gray-600" />
-                    </div>
-                  </div>
+                  {/* Lead Icon */}
+                  <div 
+                    className="absolute top-1/2 w-4 h-4 rounded-full transform -translate-y-1/2 transition-all duration-1500 ease-out"
+                    style={{
+                      ...getTypicalLeadStyle(),
+                      left: `calc(${getTypicalLeadStyle().left} * 0.8 + 8%)`,
+                    }}
+                  ></div>
                   
-                  {/* Cold leads box */}
-                  <div className="absolute bottom-4 right-4">
-                    <div className="bg-gray-300 p-3 rounded text-sm text-gray-600">
-                      Cold Leads
+                  {/* Labels */}
+                  {animationStep === 0 && (
+                    <div className="absolute top-2 left-8 text-sm text-gray-600 font-semibold animate-fade-in">
+                      New Lead
                     </div>
-                  </div>
+                  )}
+                  
+                  {animationStep >= 4 && animationStep <= 5 && (
+                    <div className="absolute top-2 right-8 text-sm text-gray-600 font-semibold animate-fade-in flex items-center gap-1">
+                      Lead Gone Cold
+                      <Heart className="w-4 h-4 text-red-500 fill-current" style={{ transform: 'scale(-1, 1)' }} />
+                    </div>
+                  )}
                 </div>
                 
-                <p className="font-sans text-gray-600 mt-4">
-                  Inefficient • Slow • Wasteful
+                <p className="font-sans text-gray-600 mt-4 text-center">
+                  Slow • Passive • Value-Destroying
                 </p>
               </div>
 
-              {/* RIGHT SIDE - Jacaranda Flow */}
-              <div className="text-center">
-                <h4 className="font-sans font-bold text-xl text-purple-700 mb-8">
+              {/* Bottom Timeline: The Jacaranda Flow */}
+              <div className="relative">
+                <h4 className="font-sans font-bold text-xl text-purple-700 mb-8 text-center">
                   The Jacaranda Flow
                 </h4>
                 
-                <div className="relative h-64 bg-purple-50 rounded-lg p-6 overflow-hidden">
-                  {/* Purple beam animation */}
-                  <div className="absolute top-4 left-4">
-                    <div
-                      className={`w-2 h-32 bg-gradient-to-r from-purple-600 to-purple-400 transform transition-all duration-1000 ${
-                        animationStep >= 1 ? 'translate-x-32 translate-y-8 rotate-45' : ''
-                      }`}
-                    />
+                <div className="relative h-24 bg-purple-50 rounded-lg p-6">
+                  {/* Timeline */}
+                  <div className="absolute top-1/2 left-8 right-8 h-2 bg-purple-600 transform -translate-y-1/2 rounded-full"></div>
+                  
+                  {/* Checkpoints */}
+                  <div className="absolute top-1/2 left-[28%] transform -translate-y-1/2">
+                    <Mail className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
+                      animationStep >= 1 ? 'scale-125 text-yellow-400' : ''
+                    }`} />
                   </div>
                   
-                  {/* Landing page with checkmark */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className={`w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center transition-all duration-500 ${
-                      animationStep >= 1 ? 'scale-110' : ''
-                    }`}>
-                      <Check className="w-8 h-8 text-white" />
-                    </div>
+                  <div className="absolute top-1/2 left-[48%] transform -translate-y-1/2">
+                    <Database className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
+                      animationStep >= 2 ? 'scale-125 text-yellow-400' : ''
+                    }`} />
                   </div>
                   
-                  {/* SMS/Email icons shooting back */}
-                  {animationStep >= 2 && (
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <MessageCircle 
-                        className={`w-6 h-6 text-purple-600 absolute transition-all duration-1000 ${
-                          animationStep >= 2 ? '-translate-x-16 -translate-y-8' : ''
-                        }`}
-                      />
-                      <Mail 
-                        className={`w-6 h-6 text-purple-600 absolute transition-all duration-1000 ${
-                          animationStep >= 2 ? '-translate-x-20 translate-y-8' : ''
-                        }`}
-                      />
+                  <div className="absolute top-1/2 left-[68%] transform -translate-y-1/2">
+                    <RotateCcw className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
+                      animationStep >= 3 ? 'scale-125 text-yellow-400' : ''
+                    }`} />
+                  </div>
+                  
+                  <div className="absolute top-1/2 right-8 transform -translate-y-1/2">
+                    <DollarSign className={`w-6 h-6 text-purple-600 transition-all duration-300 ${
+                      animationStep >= 4 ? 'scale-125 text-yellow-400' : ''
+                    }`} />
+                  </div>
+                  
+                  {/* Lead Icon */}
+                  <div 
+                    className="absolute top-1/2 w-4 h-4 bg-white rounded-full transform -translate-y-1/2 transition-all duration-1000 ease-out border-2 border-purple-600"
+                    style={{
+                      left: `calc(${getJacarandaLeadStyle().left} * 0.8 + 8%)`,
+                      opacity: getJacarandaLeadStyle().opacity,
+                    }}
+                  ></div>
+                  
+                  {/* Dynamic Labels */}
+                  {animationStep === 1 && (
+                    <div className="absolute top-2 left-[28%] transform -translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
+                      Instant Email/SMS Sent
                     </div>
                   )}
                   
-                  {/* Hot lead delivered box */}
-                  <div className={`absolute bottom-4 right-4 transition-all duration-500 ${
-                    animationStep >= 3 ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
-                  }`}>
-                    <div className="bg-purple-600 p-3 rounded text-sm text-white flex items-center gap-2">
-                      Hot Lead Delivered
-                      <ThumbsUp className="w-4 h-4" />
+                  {animationStep === 2 && (
+                    <div className="absolute top-2 left-[48%] transform -translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
+                      Logged in CRM
                     </div>
-                  </div>
+                  )}
                   
-                  {/* Purple lead flow */}
-                  {animationStep >= 3 && (
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div 
-                        className="w-4 h-4 bg-purple-600 rounded-full transition-all duration-1000 translate-x-24 translate-y-12"
-                      />
+                  {animationStep === 3 && (
+                    <div className="absolute top-2 left-[68%] transform -translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
+                      Pixel Data Fed
+                    </div>
+                  )}
+                  
+                  {animationStep >= 4 && (
+                    <div className="absolute top-2 right-8 transform translate-x-1/2 text-sm text-purple-700 font-semibold animate-fade-in">
+                      Deal Closed / High-Value Lead
                     </div>
                   )}
                 </div>
                 
-                <p className="font-sans text-purple-600 mt-4 font-semibold">
-                  Instant • Efficient • Profitable
+                <p className="font-sans text-purple-600 mt-4 text-center font-semibold">
+                  Fast • Automated • Value-Adding
                 </p>
               </div>
             </div>
