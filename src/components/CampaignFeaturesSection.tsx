@@ -35,7 +35,7 @@ const CampaignFeaturesSection = () => {
                   <Target className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h4 className="font-montserrat font-bold text-lg md:text-xl mb-4">Surgical Targeting</h4>
+              <h4 className="font-montserrat font-bold text-lg md:text-xl mb-6">Surgical Targeting</h4>
               <p className="font-open-sans text-gray-200 leading-relaxed text-sm md:text-base">
                 We don't find audiences; we build them. Reaching only high-intent buyers ready to act.
               </p>

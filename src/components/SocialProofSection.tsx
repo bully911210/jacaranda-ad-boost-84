@@ -10,21 +10,21 @@ const SocialProofSection = () => {
               Trusted Across Key Industries
             </h3>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="font-montserrat font-bold text-lg text-jacaranda mb-3">Insurance</h4>
-                <p className="font-open-sans text-gray-600 text-sm">
+              <div className="bg-white p-7 rounded-lg shadow-md">
+                <h4 className="font-montserrat font-bold text-xl text-jacaranda mb-4">Insurance</h4>
+                <p className="font-open-sans text-gray-600 text-base">
                   FSCA-compliant campaigns with automated lead scoring and instant broker alerts.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="font-montserrat font-bold text-lg text-jacaranda mb-3">Non-Profits</h4>
-                <p className="font-open-sans text-gray-600 text-sm">
+              <div className="bg-white p-7 rounded-lg shadow-md">
+                <h4 className="font-montserrat font-bold text-xl text-jacaranda mb-4">Non-Profits</h4>
+                <p className="font-open-sans text-gray-600 text-base">
                   Donor acquisition and engagement campaigns with CRM integration and follow-up automation.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="font-montserrat font-bold text-lg text-jacaranda mb-3">Service-Based SMEs</h4>
-                <p className="font-open-sans text-gray-600 text-sm">
+              <div className="bg-white p-7 rounded-lg shadow-md">
+                <h4 className="font-montserrat font-bold text-xl text-jacaranda mb-4">Service-Based SMEs</h4>
+                <p className="font-open-sans text-gray-600 text-base">
                   Lead generation with instant WhatsApp and SMS notifications to your sales team.
                 </p>
               </div>
